@@ -1,33 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="16dp"
-    tools:context="adapterteam.com.github.listadecompras.MainActivity">
+    android:layout_height="match_parent">
 
+    <!-- Título "Lista de Compras" -->
     <TextView
-        android:layout_width="match_parent"
+        android:id="@+id/textViewTitle"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Lista de Compras" />
+        android:text="Lista de Compras"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp" />
 
+    <!-- Campo de texto para inserir o nome do produto -->
     <EditText
         android:id="@+id/editText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@id/textViewTitle"
         android:hint="Nome do produto" />
 
+    <!-- Botão para adicionar um novo item -->
     <Button
-        android:id="@+id/button"
+        android:id="@+id/addButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="inserir" />
+        android:layout_below="@id/editText"
+        android:text="Adicionar" />
 
+    <!-- Botão vermelho para excluir todos os itens -->
+    <Button
+        android:id="@+id/deleteAllButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/addButton"
+        android:layout_marginTop="16dp"
+        android:text="Excluir Todos Itens" />
+
+    <!-- RecyclerView para exibir a lista de itens -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
-</LinearLayout>
+        android:layout_below="@id/deleteAllButton"
+        android:layout_marginTop="16dp" />
+
+</RelativeLayout>
